@@ -1,12 +1,16 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
+import styles from './styles';
 
-export default function Information() {
+export default function Information({name, image, status, species, gender}) {
+
   return (
-    <View>
-      <Text>
-        Information
-      </Text>
+    <View style={styles.container}>
+      <Image style={styles.image} source={image} />
+      <Text style={styles.title}>{name}</Text>
+      <Text style={styles.title}>{status}</Text>
+      <Text style={styles.title}>{species}</Text>
+      <Text style={styles.title}>{gender}</Text>
     </View>
   );
 }

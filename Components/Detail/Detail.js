@@ -1,12 +1,25 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/Ionicons';
 import Information from '../Information/Information';
 import Episodes from '../Episodes/Episodes';
+import axios from 'axios';
 
 const Tab = createBottomTabNavigator();
+const BASE_URL = "https://rickandmortyapi.com/api";
 
-export default function Detail() {
+export default function Detail({route}) {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/character/${route.params.id}`)
+      .then(response => setData(response.data))
+      .catch(error => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <Tab.Navigator
       initialRouteName="Information"
@@ -22,7 +35,6 @@ export default function Detail() {
     >
       <Tab.Screen 
         name="Information" 
-        component={Information} 
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons 
@@ -30,10 +42,21 @@ export default function Detail() {
             color={color} size={size} />
           )
         }}
+      >
+      {() => 
+      (isLoading ? 
+      <ActivityIndicator size="large" color="#00ff00" /> :
+      <Information 
+        name={data.name} 
+        image={data.image}
+        status={data.status}
+        species={data.species}
+        gender={data.gender}
       />
+      )}
+      </Tab.Screen>
       <Tab.Screen 
         name="Episodes" 
-        component={Episodes} 
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons 
@@ -41,7 +64,15 @@ export default function Detail() {
             size={size} />
           )
         }}
+      >
+      {() => 
+      (isLoading ? 
+      <ActivityIndicator size="large" color="#00ff00" /> :
+      <Episodes 
+        episodes={data.episode} 
       />
+      )}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 }
