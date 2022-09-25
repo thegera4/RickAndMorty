@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Text, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 
-export default function CharacterCard({image, name, navigation}) {
+export default function CharacterCard({image, name }) {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity 
       style={styles.container}

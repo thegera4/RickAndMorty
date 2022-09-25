@@ -1,5 +1,4 @@
 import * as React from 'react';
-//import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/Ionicons';
 import Information from '../Information/Information';
@@ -11,8 +10,14 @@ export default function Detail() {
   return (
     <Tab.Navigator
       initialRouteName="Information"
-      tabBarOptions={{
-        activeTintColor: 'darkblue'
+      screenOptions={{
+        tabBarActiveTintColor: 'darkblue',
+        tabBarStyle: [
+          {
+            display: 'flex',
+          },
+          null
+        ]
       }}
     >
       <Tab.Screen 
@@ -20,7 +25,9 @@ export default function Detail() {
         component={Information} 
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="information-circle" color={color} size={size} />
+            <MaterialCommunityIcons 
+            name="information-circle" 
+            color={color} size={size} />
           )
         }}
       />
@@ -29,7 +36,9 @@ export default function Detail() {
         component={Episodes} 
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="book" color={color} size={size} />
+            <MaterialCommunityIcons 
+            name="book" color={color} 
+            size={size} />
           )
         }}
       />
