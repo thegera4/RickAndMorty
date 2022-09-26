@@ -36,6 +36,7 @@ export default function Detail({route}) {
       <Tab.Screen 
         name="Information" 
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons 
             name="information-circle" 
@@ -58,6 +59,7 @@ export default function Detail({route}) {
       <Tab.Screen 
         name="Episodes" 
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons 
             name="book" color={color} 

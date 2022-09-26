@@ -18,7 +18,6 @@ export default function Episodes({episodes}) {
       .finally(() => setLoading(false));
   }, []);
 
-  console.log(data);
   return (
     <View style={{flex: 1}}>
       {isLoading ? 
