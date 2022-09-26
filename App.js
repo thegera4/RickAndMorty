@@ -10,8 +10,24 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{title: "RickAndMorty App"}}/>
-        <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen 
+        name="Home" 
+        component={Home} 
+        options={
+          {
+            headerTintColor: "green",
+            //headerShown: false,
+            headerStyle: {
+              backgroundColor: "lightblue",
+              alignItems: "center",
+              justifyContent: "center",
+            },
+            title: "RickAndMorty App"
+          }
+        }/>
+        <Stack.Screen 
+        name="Detail" 
+        component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );

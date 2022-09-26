@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { View, ActivityIndicator, FlatList } from 'react-native';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import { Searchbar } from 'react-native-paper';
+import styles from './styles';
 import axios from 'axios';
 
 const BASE_URL = "https://rickandmortyapi.com/api"
@@ -43,6 +44,7 @@ export default function Home() {
   return (
     <View>
       <Searchbar
+        style={styles.search}
         placeholder="Search character..."
         onChangeText={value => setSearch(value)}
         value={search}

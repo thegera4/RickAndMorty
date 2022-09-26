@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    marginTop: 0,
+    marginTop: 10,
     alignItems: 'center',
+    alignSelf: 'center',
     padding: 16,
     borderRadius: 8,
     backgroundColor: '#fff',
