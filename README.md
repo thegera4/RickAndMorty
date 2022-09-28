@@ -1,6 +1,6 @@
 # RickAndMorty
 
-React-Native App using the Rick and Morty Api
+Simple React-Native App using the Rick and Morty Api to practice react-native navigation
 
 ![RM1](https://user-images.githubusercontent.com/84020433/192175818-2d9b35b3-ca1f-42d5-8cbd-74ba66438844.PNG)
 
